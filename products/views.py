@@ -17,7 +17,7 @@ def all_products(request):
                 messages.error(request, "You did'nt enter any search criteria!")
                 return redirect(reverse('products'))
 
-            queries = Q(name_icontains=query) | Q(description_icontains=query)
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
     context = {
